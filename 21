@@ -1,0 +1,27 @@
+#!/usr/bin/python
+
+import requests
+
+
+
+# print(response.status_code) >>> 200 all good
+
+# print(response.content)
+# print(response) >>> <Response [200]>
+
+# print(response.json())
+# This gets the same data as command (response.content)
+
+def main():
+    
+    response = requests.get("https://statsapi.web.nhl.com/api/v1/teams")
+    
+    print("\nNational Hockey League contains following teams: \n")
+    if response.json()["teams"] == []:
+        print("No data")
+    else:
+
+        for team in response.json()["teams"]:
+            print("Name: " + rows["name"])
+
+main()
